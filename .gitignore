@@ -1,0 +1,10 @@
+.env
+service_account.json
+health-dashboard-488112-73f862e813eb.json
+.claude
+PLAN.md
+tokens.json
+__pycache__/
+*.pyc
+venv/
+.venv/
