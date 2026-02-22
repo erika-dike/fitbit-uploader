@@ -1,0 +1,23 @@
+[Unit]
+Description=Fitbit Uploader HTTP Server
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/fitbit-uploader
+ExecStart=/opt/fitbit-uploader/venv/bin/python /opt/fitbit-uploader/server.py
+Restart=always
+RestartSec=5
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=fitbit-uploader
+
+# Environment file (contains API_KEY, Fitbit creds, etc.)
+EnvironmentFile=/opt/fitbit-uploader/.env
+
+[Install]
+WantedBy=multi-user.target
